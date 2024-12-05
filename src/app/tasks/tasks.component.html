@@ -1,0 +1,17 @@
+@if(isVisible) {
+<app-new-task [userId]="user().id" (close)="onCloseAddTask()" />
+}
+
+<div class="tasks">
+  <header>
+    <h2>{{ user().name }}</h2>
+    <menu>
+      <button (click)="onStartAddTask()">Add Task</button>
+    </menu>
+  </header>
+  <ul>
+    @for (task of userTasks; track task.id) {
+    <li><app-task [task]="task" /></li>
+    }
+  </ul>
+</div>
